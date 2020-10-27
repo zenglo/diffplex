@@ -35,9 +35,9 @@ namespace DiffPlex.DiffBuilder
             if (newText == null) throw new ArgumentNullException(nameof(newText));
 
             var model = new DiffPaneModel();
-
             var diffResult = differ.CreateDiffs(oldText, newText, ignoreWhitespace, ignoreCase: ignoreCase, chunker);
             BuildDiffPieces(diffResult, model.Lines);
+            
             return model;
         }
 
@@ -73,6 +73,7 @@ namespace DiffPlex.DiffBuilder
             var model = new DiffPaneModel();
             var diffResult = (differ ?? Differ.Instance).CreateDiffs(oldText, newText, ignoreWhiteSpace, ignoreCase, chunker ?? LineChunker.Instance);
             BuildDiffPieces(diffResult, model.Lines);
+            
             return model;
         }
 

@@ -63,6 +63,7 @@ namespace DiffPlex.DiffBuilder
             var model = new SideBySideDiffModel();
             var diffResult = Differ.Instance.CreateDiffs(oldText, newText, ignoreWhiteSpace, ignoreCase, LineChunker.Instance);
             BuildDiffPieces(diffResult, model.OldText.Lines, model.NewText.Lines, BuildWordDiffPiecesInternal);
+
             return model;
         }
 
@@ -90,6 +91,7 @@ namespace DiffPlex.DiffBuilder
                 var r = differ.CreateDiffs(oldText, newText, false, false, wordChunker ?? WordChunker.Instance);
                 BuildDiffPieces(r, op, np, null);
             });
+            
             return model;
         }
 
@@ -104,6 +106,7 @@ namespace DiffPlex.DiffBuilder
             var model = new SideBySideDiffModel();
             var diffResult = differ.CreateDiffs(oldText, newText, ignoreWhitespace, false, lineChunker);
             BuildDiffPieces(diffResult, model.OldText.Lines, model.NewText.Lines, BuildWordDiffPieces);
+            
             return model;
         }
 
