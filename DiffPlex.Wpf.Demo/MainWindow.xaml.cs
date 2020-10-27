@@ -54,5 +54,11 @@ namespace DiffPlex.Wpf.Demo
 
             DiffView.ShowInline();
         }
+
+        private void refButton_Click(object sender, RoutedEventArgs e)
+        {
+            DiffView.OldText = this.txt1.Text;
+            DiffView.NewText = this.txt2.Text;
+        }
     }
 }
